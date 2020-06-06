@@ -1,3 +1,7 @@
+variable "aws_region" {
+  description = "The AWS region to which the VPN will be deployed"
+}
+
 variable "ssh_key_id" {
   description = "A SSH public key ID to add to the VPN instance."
 }
