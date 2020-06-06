@@ -5,6 +5,7 @@ data "template_file" "user_data" {
     wg_server_private_key = data.aws_ssm_parameter.wg_server_private_key.value
     wg_server_net         = var.wg_server_net
     wg_server_port        = var.wg_server_port
+    network_interface_name = var.network_interface_name
     peers                 = join("\n", data.template_file.wg_client_data_json.*.rendered)
     eip_id                = var.eip_id
   }
@@ -26,7 +27,7 @@ data "aws_ami" "ubuntu" {
   most_recent = true
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-*-16.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-*-20.04-amd64-server-*"]
   }
   filter {
     name   = "virtualization-type"

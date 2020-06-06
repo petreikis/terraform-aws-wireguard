@@ -7,8 +7,13 @@ variable "ssh_key_id" {
 }
 
 variable "instance_type" {
-  default     = "t2.micro"
+  default     = "t3.micro"
   description = "The machine type to launch, some machines may offer higher throughput for higher use cases."
+}
+
+variable "network_interface_name" {
+  default     = "ens5"
+  description = "The name of the network interface"
 }
 
 variable "asg_min_size" {
